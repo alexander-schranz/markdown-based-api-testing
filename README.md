@@ -44,7 +44,7 @@ disadvantage that we can not add any comment to it.
 
 So I did think about using markdown flavoured format for this:
 
-~~~md
+~~~markdown
 # Request
 
 ```http request
@@ -76,7 +76,7 @@ the HTTP protocol it has one downside. The downside is the autocomplete
 and code highlighting of the JSON in the IDE. So to fix that one I
 split the content into an own code block of the markdown file:
 
-~~~
+~~~markdown
 # Request
 
 ```http request
