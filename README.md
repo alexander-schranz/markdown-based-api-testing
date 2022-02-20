@@ -251,6 +251,11 @@ private function parseResponse(string $output): array
 
 </details>
 
+And then used the parsed data to send the request over the symfony
+web test case. The parsed data of the response is used for the assertions
+against the response object. We are matching here all relevant data
+the Protocol Version, Status Code, Headers and Content.
+
 Now we can use our `AbstractApiTest` in our own Test by testing our rest endpoint:
 
 ```php
