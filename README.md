@@ -353,6 +353,15 @@ Now the nice thing is as we are using the path from `getcwd()` (current director
 we can directly in our terminal click on the `.md` file path to get to that
 test cases and adopt it to our needs.
 
+By using that replace its now also possible to filter by that specific test case 
+via phpunit:
+
+```bash
+vendor/bin/phpunt --filter="example_post.md"
+```
+
+This way only the `example_post.md` is exectued.
+
 ## Conclusion
 
 With the usage of a more general format we did got ride of a lot of boilerplate
