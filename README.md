@@ -285,17 +285,17 @@ make sure that you are loading some database fixtures which are required for you
 
 Now we can create our test cases in our markdown files like the followings:
 
+<p>
 <a href="tests/Functional/Controller/fixtures/example_get.md">
-
-![Get Test Case](pictures/get-test.png)
-
+    <img src="pictures/get-test.png" alt="Get Test Case" style="width: 420px">
 </a>
+</p>
 
+<p>
 <a href="tests/Functional/Controller/fixtures/example_post.md">
-
-![Post Test Case](pictures/post-test.png)
-
+    <img src="pictures/post-test.png" alt="Post Test Case" style="width: 420px">
 </a>
+</p>
 
 ## Fix problem with dynamic response content
 
