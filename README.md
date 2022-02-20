@@ -186,7 +186,7 @@ The markdown file I did parse quickly with a regex to get out the information
 I needed.
 
 <details>
-    <summary>`parseRequest`</summary>
+    <summary>parseRequest Function</summary>
 
 ```php
 /**
@@ -219,7 +219,7 @@ private function parseRequest(string $input): array
 </details>
 
 <details>
-    <summary>`parseResponse`</summary>
+    <summary>parseResponse Function</summary>
 
 ```php
 /**
@@ -331,7 +331,7 @@ inside our response content.
 
 ## Optimizing the output format in PHPUnit
 
-I personally prefer to use the `nunomaduro\collision` package
+I personally prefer to use the [`nunomaduro\collision`](https://github.com/nunomaduro/collision) package
 as a printer for my PHPUnit tests. As it output the tests 
 in a nice readable way:
 
