@@ -76,7 +76,7 @@ the HTTP protocol it has one downside. The downside is the autocomplete
 and code highlighting of the JSON in the IDE. So to fix that one I
 split the content into an own code block of the markdown file:
 
-~~~
+~~~markdown
 # Request
 
 ```http request
