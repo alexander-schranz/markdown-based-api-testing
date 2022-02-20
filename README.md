@@ -1,4 +1,4 @@
-# Testing your APIs in a new way
+# Testing APIs using Markdown and PHP Matcher
 
 My experience is that almost every API tests follow the same workflow. 
 Fixtures are loaded in setupBeforeClass or maybe in a bootstrap file of
@@ -276,6 +276,20 @@ class ExampleControllerTest extends AbstractApiTest
 
 In the testMethod itself or in the `setupBeforeClass` class you even could still
 make sure that you are loading some database fixtures which are required for your test case.
+
+Now we can create our test cases in our markdown files like the followings:
+
+<a href="tests/Functional/Controller/fixtures/example_get.md">
+
+![Get Test Case](pictures/get-test.png)
+
+</a>
+
+<a href="tests/Functional/Controller/fixtures/example_post.md">
+
+![Post Test Case](pictures/post-test.png)
+
+</a>
 
 ## Fix problem with dynamic response content
 
