@@ -343,7 +343,13 @@ The tests could also be even ported to another framework if the framework of you
 application is changing or even to another language, there you would just need
 to reimplement your base test case again.
 
-If you want to test it yourself feel free to clone this repository and run its tests:
+Also if you don't want to use markdown files I can recommend using the
+[coduo/php-matcher](https://github.com/coduo/php-matcher) instead of manual
+matching your response data. Because your tests should also fail if you are
+adding a new key to your response object. So you are sure that new added keys
+are also added to your test cases.
+
+If you want to test it yourself feel free to clone this repository and run and adopt its tests:
 
 ```bash
 git clone https://github.com/alexander-schranz/markdown-based-api-testing
