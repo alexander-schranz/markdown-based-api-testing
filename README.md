@@ -17,8 +17,7 @@ and have the request and response in the same file.
 
 ## Creating a framework independent format
 
-While thinking about framework independent I first was trying around
-with a json format like:
+First I was thinking about moving all into a json format like the following:
 
 ```json
 {
