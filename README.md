@@ -4,9 +4,16 @@ My experience is that almost every API tests follow the same workflow.
 Fixtures are loaded in setupBeforeClass or maybe in a bootstrap file of
 your test framework. A request is send and the response should match.
 
+In the last projects I did match the response content against an own `.json` 
+file for my tests. But in this case I need to adopt the request in my
+Test file but the expected result is in another own `.json` file, which
+did make the maintainance a little bit difficult sometimes, to find
+the correct `.json` file for the correct test case.
+
 After I did stumble over the test cases in the [rectorphp](https://github.com/rectorphp/rector-src/pull/1668/files).
 I was thinking about how I could adopt this also for APIs to get my API
-tests in a format which removes the whole boilerplate of creating the tests.
+tests in a format which removes the whole boilerplate of creating the tests
+and have the request and response in the same file.
 
 ## Creating a framework independent format
 

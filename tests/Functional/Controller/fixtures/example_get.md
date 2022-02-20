@@ -7,7 +7,7 @@ Accept: application/json
 
 ---
 
-# Respone
+# Response
 
 ```http request
 HTTP/1.1 200 OK
