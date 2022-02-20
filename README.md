@@ -1,23 +1,22 @@
 # Testing APIs using Markdown and PHP Matcher
 
-My experience is that almost every API tests follow the same workflow. 
-Fixtures are loaded in setupBeforeClass or maybe in a bootstrap file of
+My experience is that almost every API test follow the same workflow. 
+Fixtures are loaded in setupBeforeClass or in a bootstrap file of
 your test framework. A request will be sent and the response should match.
 
 In the last projects I have matched the content against an own `.json` 
-file for my tests. But in this case I need to adopt the request in my
-Test file but the expected result is in another own `.json` file, which
-did make the maintainance a little bit difficult sometimes, to find
+file for my tests. To do that I need to adopt the request in my
+Test file but the expected result is in another own `.json` file, which make the maintainance a little bit difficult because I need to find
 the correct `.json` file for the correct test case.
 
 After I stumbled over the test cases in the [rectorphp](https://github.com/rectorphp/rector-src/pull/1668/files) library,
-I was thinking about how I could adopt this also for APIs. I wanted to get my API
-tests in a format which removes the whole boilerplate of creating the tests
-and have the request and response in the same file.
+I was thinking about how I could adopt this also for API tests. I wanted to get my API
+tests into a format which remove the whole boilerplate of creating the tests
+and also have the request and response in the same file.
 
 ## Creating a framework independent format
 
-First I was thinking about moving all into a json format like the following:
+First I thought about moving all into a json format like the following:
 
 ```json
 {
@@ -39,10 +38,10 @@ First I was thinking about moving all into a json format like the following:
 }
 ```
 
-But I think that the JSON format is not very readable and JSON has the
+But I think that JSON is not very readable and has the
 disadvantage that we can not add any comment to it.
 
-So I did think about using markdown flavoured format for this:
+So I had the idea to use a markdown flavoured format for this:
 
 ~~~markdown
 # Request
@@ -71,10 +70,10 @@ Content-Type: application/json
 ```
 ~~~
 
-Why at first place the format is really great because it matches
-the HTTP protocol it has one downside. The downside is the autocomplete
-and code highlighting of the JSON in the IDE. So to fix that one I
-split the content into an own code block of the markdown file:
+The format is really great because it matches
+the HTTP protocol nevertheless it has one downside. 
+Compared to JSON, autocompletion and code highlighting are missing in the IDE.
+To fix this, I split the content into an own code block of the markdown file:
 
 ~~~markdown
 # Request
@@ -107,14 +106,14 @@ Content-Type: application/json
 ```
 ~~~
 
-Now we have the format how we want to write tests, now it come the part to implement
-it that we can use it.
+There it is, the format how we are able to write tests.
+Now its time to use it.
 
 ## Creating a basic test case
 
 To create our basic test case we first need a method to read our markdown files.
-We will use here the [symfony/finder](https://symfony.com/doc/current/components/finder.html)
-component to read the only files we need.
+We will use the [symfony/finder](https://symfony.com/doc/current/components/finder.html)
+component to read only the files we need.
 
 ```php
 <?php
@@ -146,8 +145,8 @@ abstract class AbstractApiTest extends WebTestCase
 }
 ```
 
-Now we need to add also a method to parse the markdown file and make our expected
-assertions by them:
+Now we need to add a method to parse the markdown file and make our expected
+assertions:
 
 ```php
 protected function doTestFileInfo(\SplFileInfo $fileInfo): void
@@ -182,8 +181,7 @@ protected function doTestFileInfo(\SplFileInfo $fileInfo): void
 }
 ```
 
-The markdown file I did parse quickly with a regex to get out the information
-I needed.
+To get the information I need, I parsed the markdown file with a regex.
 
 <details>
     <summary>parseRequest Function</summary>
@@ -346,22 +344,22 @@ in a nice readable way:
 ![Picture of default output](pictures/output-default.png)
 
 Still it does not indicate here a lot but with a little change in our
-API Testcase by using a key in our test generator this way:
+API test case by using a key in our test generator this way:
 
 ```diff
 -yield [$file];
 +yield \str_replace(\getcwd() . '/', '', $file->getPathname()) => [$file];
 ```
 
-It will output us the test in the following format:
+It will output the test in the following format:
 
 ![Picture of collision output with set key](pictures/output-formatted.png)
 
 Now the nice thing is as we are using the path from `getcwd()` (current directory)
-we can directly in our terminal click on the `.md` file path to open the
+we are able to directly click in our terminal on the `.md` file path to open the
 test case file and adopt it to our needs when required.
 
-By using that the filename as key it is now also possible to filter by that specific
+By using the filename as key it is also possible to filter by the specific
 test case via phpunit:
 
 ```bash
@@ -372,19 +370,19 @@ This way only the `example_post.md` is exectued.
 
 ## Conclusion
 
-With the usage of a more general format we did got ride of a lot of boilerplate
+With the usage of a more general format we got rid of a lot of boilerplate
 code for our api tests. With the usage of markdown files we even make it possible
 to better document our test cases as we could add test for them.
 Also I like to use the response and request format of the official http standard.
 
-The tests could also be even ported to another framework if the framework of your
-application is changing or even to another language, there you would just need
+The tests could also be ported to another framework if the framework of your
+application is changing or even to another language. You just would need
 to reimplement your base test case again.
 
-Also if you don't want to use markdown files I can recommend using the
+Also if you don't want to use markdown files I recommend using the
 [coduo/php-matcher](https://github.com/coduo/php-matcher) instead of manual
 matching your response data. Because your tests should also fail if you are
-adding a new key to your response object. So you are sure that new added keys
+adding a new key to your response object. So you can be sure that new added keys
 are also added to your test cases.
 
 If you want to test it yourself feel free to clone this repository and run and adopt its tests:
@@ -395,7 +393,6 @@ composer install
 vendor/bin/phpunit
 ```
 
-Let me know what you think about this way of testing your api. Maybe you know
-exist API test frameworks which work the similar way.
-
+Tell me what you think about this way of testing your api. 
+I am also interessted in existing api test frameworks that work in a similar way.
 Attend the discussion about this on [Twitter](https://twitter.com/alex_s_/status/1495503991429554181).
