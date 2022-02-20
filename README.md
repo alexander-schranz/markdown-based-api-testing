@@ -358,11 +358,11 @@ It will output us the test in the following format:
 ![Picture of collision output with set key](pictures/output-formatted.png)
 
 Now the nice thing is as we are using the path from `getcwd()` (current directory)
-we can directly in our terminal click on the `.md` file path to get to that
-test cases and adopt it to our needs.
+we can directly in our terminal click on the `.md` file path to open the
+test case file and adopt it to our needs when required.
 
-By using that replace its now also possible to filter by that specific test case 
-via phpunit:
+By using that the filename as key it is now also possible to filter by that specific
+test case via phpunit:
 
 ```bash
 vendor/bin/phpunt --filter="example_post.md"
