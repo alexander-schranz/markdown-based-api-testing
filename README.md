@@ -297,6 +297,9 @@ Now we can create our test cases in our markdown files like the followings:
 
 </a>
 
+I think it is really nice as it forces the developer to work in 
+a format based on the HTTP Protocol Standard.
+
 ## Fix problem with dynamic response content
 
 While it is hard when you example work with date times,
