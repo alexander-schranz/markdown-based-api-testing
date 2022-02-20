@@ -21,18 +21,23 @@ First I thought about moving all into a json format like the following:
 ```json
 {
     "request": {
-        "method": "GET",
+        "method": "POST",
         "uri": "/api/examples/1",
         "headers": {
             "Accept": "application/json"
+        },
+        "content": {
+            "title": "Test"
         }
     },
     "response": {
-        "method": "GET",
-        "uri": "/api/examples/1",
-        "content": "/api/examples/1",
+        "statusCode": 200,
         "headers": {
             "Accept": "application/json"
+        },
+        "content": {
+            "id": "@integer@",
+            "title": "Test"
         }
     }
 }
@@ -64,7 +69,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "id": "@int@",
+    "id": "@integer@",
     "title": "Test"
 }
 ```
