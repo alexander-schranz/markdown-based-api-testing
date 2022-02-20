@@ -6,7 +6,7 @@ your test framework. A request is send and the response should match.
 
 After I did stumble over the test cases in the [rectorphp](https://github.com/rectorphp/rector-src/pull/1668/files).
 I was thinking about how I could adopt this also for APIs to get my API
-tests in a format which are framework independent.
+tests in a format which removes the whole boilerplate of creating the tests.
 
 ## Creating a framework independent format
 
