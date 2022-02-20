@@ -33,7 +33,7 @@ with a json format like:
 }
 ```
 
-But I think that that format is not very readable and json has the
+But I think that the JSON format is not very readable and JSON has the
 disadvantage that we can not add any comment to it.
 
 So I did think about using markdown flavoured format for this:
@@ -66,9 +66,9 @@ Content-Type: application/json
 ~~~
 
 Why at first place the format is really great because it matches
-the HTTP protocal it has one downside and it is the autocomplete
+the HTTP protocol it has one downside. The downside is the autocomplete
 and code highlighting of the JSON in the IDE. So to fix that one I
-split the content into an own block:
+split the content into an own code block of the markdown file:
 
 ~~~
 # Request
@@ -101,7 +101,8 @@ Content-Type: application/json
 ```
 ~~~
 
-Now we have the format how we want to write tests.
+Now we have the format how we want to write tests, now it come the part to implement
+it that we can use it.
 
 ## Creating a basic test case
 
@@ -244,7 +245,7 @@ private function parseResponse(string $output): array
 
 </details>
 
-Now we can use our `AbstractApiTest` in our own Test by testing simple Rest endpoint:
+Now we can use our `AbstractApiTest` in our own Test by testing our rest endpoint:
 
 ```php
 <?php
