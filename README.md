@@ -285,17 +285,17 @@ make sure that you are loading some database fixtures which are required for you
 
 Now we can create our test cases in our markdown files like the followings:
 
+<p>
 <a href="tests/Functional/Controller/fixtures/example_get.md">
-
-![Get Test Case](pictures/get-test.png)
-
+    <img src="pictures/get-test.png" alt="Get Test Case" style="width: 420px">
 </a>
+</p>
 
+<p>
 <a href="tests/Functional/Controller/fixtures/example_post.md">
-
-![Post Test Case](pictures/post-test.png)
-
+    <img src="pictures/post-test.png" alt="Post Test Case" style="width: 420px">
 </a>
+</p>
 
 I think it is really nice as it forces the developer to work in 
 a format based on the HTTP Protocol Standard.
@@ -393,4 +393,4 @@ vendor/bin/phpunit
 Let me know what you think about this way of testing your api. Maybe you know
 exist API test frameworks which work the similar way.
 
-Attend the discussion about this on [Twitter](#TODO).
+Attend the discussion about this on [Twitter](https://twitter.com/alex_s_/status/1495503991429554181).
