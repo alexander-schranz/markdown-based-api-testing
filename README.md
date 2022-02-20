@@ -390,4 +390,4 @@ vendor/bin/phpunit
 Let me know what you think about this way of testing your api. Maybe you know
 exist API test frameworks which work the similar way.
 
-Attend the discussion about this on [Twitter](#TODO).
+Attend the discussion about this on [Twitter](https://twitter.com/alex_s_/status/1495503991429554181).
