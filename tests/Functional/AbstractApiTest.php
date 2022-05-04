@@ -41,7 +41,7 @@ abstract class AbstractApiTest extends WebTestCase
         /** @var array<string, string> $server */
         $server = [];
         foreach ($headers as $key => $value) {
-            $servers['HTTP_' . strtoupper(str_replace('-', '_', $key))] = $value;
+            $server['HTTP_' . strtoupper(str_replace('-', '_', $key))] = $value;
         }
 
         // act

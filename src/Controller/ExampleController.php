@@ -13,6 +13,12 @@ class ExampleController
     #[Route('/api/examples/{id}', methods: ['GET'], name: 'api_example_get')]
     public function getAction(Request $request, int $id): Response
     {
+        if (!$request->headers->has('X-Auth-Token')) {
+            return new Response('Invalid credentials', Response::HTTP_FORBIDDEN);
+        }
+        if ('e1f4ec0d-54df-465e-8cf3-78dad2ca8463' !== $request->headers->get('X-Auth-Token')) {
+            return new Response('Invalid credentials', Response::HTTP_UNAUTHORIZED);
+        }
         if ($id !== 1) {
             throw new NotFoundHttpException();
         }
