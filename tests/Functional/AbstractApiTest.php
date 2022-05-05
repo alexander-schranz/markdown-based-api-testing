@@ -41,7 +41,12 @@ abstract class AbstractApiTest extends WebTestCase
         /** @var array<string, string> $server */
         $server = [];
         foreach ($headers as $key => $value) {
-            $server['HTTP_' . strtoupper(str_replace('-', '_', $key))] = $value;
+            // custom header https://symfony.com/doc/current/testing.html#sending-custom-headers
+            if(str_starts_with($key, 'X-')) {
+                $server['HTTP_' . strtoupper(str_replace('-', '_', $key))] = $value;
+            } else {
+                $server[strtoupper(str_replace('-', '_', $key))] =  $value;
+            }
         }
 
         // act
