@@ -29,7 +29,7 @@ class ExampleController
         ]);
     }
 
-    #[Route('/api/examples', methods: ['POST'], name: 'api_example_post')]
+    #[Route('/api/examples', name: 'api_example_post', methods: ['POST'], condition: "request.headers.get('Content-Type') matches '/application\\\\/json/i'")]
     public function postAction(Request $request): Response
     {
         $id = mt_rand(2, 100);
